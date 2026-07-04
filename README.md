@@ -86,7 +86,7 @@ All migration actions can be executed directly from SMP.
   And wait for completions until the status shows **Done** 
   
 7. We terminate the Migration Wizard and return to normal table view filtered by **dc\***
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-mysql-IRIS/master/docs/gty09.jpg)   
+  
   All 8 tables are visible and show meaningful columns
   
 8. Selecting a table and clicking on **OpenTable** shows reasonable contents   
