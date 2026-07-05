@@ -1,24 +1,29 @@
 services:
-    mssql:
-        image: chriseaton/adventureworks:latest
-        restart: always
-        environment:
-          MSSQL_SA_PASSWORD: 'MSSQLServer@2019'
-          ACCEPT_EULA: 'Y'
-        ports:
-          - '1433:1433'
-        volumes:
-          - ./mssql:/var/lib/mssql
     iris:
       build:
         context: .
         dockerfile: Dockerfile
       restart: always
-      environment:
-        - ISC_CPF_MERGE_FILE=/home/irisowner/dev/merge.cpf
       ports:
         - 41773:1972
         - 42773:52773
       volumes:
         - ./:/home/irisowner/dev
         - ./jdbc:/opt/irisbuild/jdbc
+
+    db2:
+      image: ibmcom/db2:11.5.8.0
+      container_name: db2
+      privileged: true
+      ports:
+      - 50000:50000
+      environment:
+      - DB2INST1_PASSWORD=password
+      - LICENSE=accept
+      - DBNAME=sample
+      - SAMPLEDB=true
+      volumes:
+      - db2_data:/database
+      
+volumes:
+  db2_data:
