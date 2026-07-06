@@ -1,5 +1,5 @@
 
-# SQLgateway-migration-ibmDB2-IRIS #  
+# SQLgateway-migration-ORACLE-IRIS #  
 Sample repository to show how to migrate from IBM DB2server to InterSystems IRIS    
 **using SQLgateway** in contrast to using an external tool as DBeaver or CloudBeaver or similar. 
 ### Warning ###
@@ -7,7 +7,7 @@ This is just JDBC/Java and IRIS with ISOS and SQL
 - no AI, no Python, no other magic
  
 ## Credits ##
-Git>Hub package [migration-db2-iris](https://github.com/yurimarx/migration-oracle-iris)
+Git>Hub package [migration-oracle-iris](https://github.com/yurimarx/migration-oracle-iris)
 provided by [YURI MARX PEREIRA GOMES](https://openexchange.intersystems.com/user/YURI%20MARX%20PEREIRA%20GOMES/QKGV1uPuZml09uNsC8bNKcRQj8)   
     - Special thanks as this was an excellent base to start off.  
 And the [official documentation on SQLgateway](https://docs.intersystems.com/iris20261/csp/docbook/Doc.View.cls?KEY=BSQG_overview)  
@@ -18,7 +18,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 ## Installation 
 Clone/git pull the repo into any local directory
 ```
-git https://github.com/r-cemper/SQLgateway-migration-ibmDB2-IRIS.git
+git https://github.com/r-cemper/SQLgateway-migration-ORACLE-IRIS.git
 ```
 1. Build
 ```
