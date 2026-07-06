@@ -7,7 +7,7 @@ This is just JDBC/Java and IRIS with ISOS and SQL
 - no AI, no Python, no other magic
  
 ## Credits ##
-Git>Hub package [migration-db2-iris](https://github.com/yurimarx/migration-db2-iris)
+Git>Hub package [migration-db2-iris](https://github.com/yurimarx/migration-oracle-iris)
 provided by [YURI MARX PEREIRA GOMES](https://openexchange.intersystems.com/user/YURI%20MARX%20PEREIRA%20GOMES/QKGV1uPuZml09uNsC8bNKcRQj8)   
     - Special thanks as this was an excellent base to start off.  
 And the [official documentation on SQLgateway](https://docs.intersystems.com/iris20261/csp/docbook/Doc.View.cls?KEY=BSQG_overview)  
@@ -31,12 +31,12 @@ docker-compose up
   - Wait for confirmation from your containers container:  **ready to accept connections**
   - The first pull for DB2 may take quite some time for the upload
 
-3.   **Connection to ibmDB2**: 
-        - host: container db2 
-        - database: sample 
-        - port: 500000 
-        - username: db2inst1
-        - password: password
+3.   **Connection to ORACLE**: 
+        - host: container oracle 
+        - database: SAMPLEDB 
+        - port: 1521
+        - username: sys
+        - password: Welcome1
 4.   **Connection to IRIS**: 
         - host: localhost 
         - namespace: user 
@@ -54,7 +54,7 @@ SMP is available here
 All migration actions can be executed directly from SMP.   
 1. Verify the gateway connection in    
    SMP> Administration> Configuration> Connectivity> SqlGateway_Configuration    
- ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ibmDB2-IRIS/master/docs/gty01.jpg) 
+ ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ORACLE-IRIS/master/docs/gty01.jpg) 
    - To test Connection click **edit** for connection **ibmDB2**     
    - verify  **Connection successful**      
    - Be patient at this point. Some DB containers take quite some time to talk to you.   
@@ -62,13 +62,13 @@ All migration actions can be executed directly from SMP.
    
 2. Identifying the source tables. In SMP > Change to Namespace USER   
   then step to SMP >Explorers >SQL >Wizards > Data Migration   
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ibmDB2-IRIS/master/docs/gty04.jpg)
+  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ORACLE-IRIS/master/docs/gty04.jpg)
   
 3. Set required import parameters  
  
   -  Destination Namespace = USER  
   -  Type = TABLE   
-  -  Select a SQL Gateway connection: = ibmDB2  ; now the first connection is established and you select 
+  -  Select a SQL Gateway connection: = ORACLE  ; now the first connection is established and you select 
   -  and you select Schema = [your choice ? ]
   -  Tables to migrate:  The example has a lot of cross-references 
      It might be clever to load tables in their logical order to reduce errors
@@ -77,7 +77,7 @@ All migration actions can be executed directly from SMP.
 4. Identifying new targets is possible, but may cause conflicts in cross-references   
 
 5. Skipping special settings, we use defaults to start the task in background      
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ibmDB2-IRIS/master/docs/gty07.jpg) 
+  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-ORACLE-IRIS/master/docs/gty07.jpg) 
   
 6. Now check the results and see if everything was working without Errors
   You might see errors if tables depend on content not yet migrated.   
@@ -90,5 +90,5 @@ All migration actions can be executed directly from SMP.
   
 9. A look into the related generated Class Definitions confirms the result and successful completion.
 
-  [Article on DC](https://community.intersystems.com/post/sqlgateway-migration-ibmDB2-iris)    
-  [Data source description by Yuri Marx](https://community.intersystems.com/post/data-migration-tool-part-iii-db2-iris)
+  [Article on DC](https://community.intersystems.com/post/sqlgateway-migration-ORACLE-iris)    
+  [Data source description by Yuri Marx](https://community.intersystems.com/post/data-migration-tool-part-v-oracle-database-21c-iris)
