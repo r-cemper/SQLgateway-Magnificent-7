@@ -18,7 +18,7 @@ services:
       restart: always
       ports:
         - 51972:1972
-        - 57772:57772
+        - 51772:57772
       volumes:
         - ./:/opt/cacheapp
         
