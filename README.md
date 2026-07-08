@@ -20,6 +20,7 @@ uncovers more useful features.
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.    
 In order to allow networking with Caché you need an appropriate license.  
 Caché works by default with a single user and no networks.
+Add it and enable copy in cache/Dockerfile
 
 ## Installation 
 Clone/git pull the repo into any local directory
