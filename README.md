@@ -1,7 +1,7 @@
 # The Magnificent Seven #  
 After composing examples of using SQLgateway for DB_Migration to IRIS  
 I couldn't resist assembling all 7 around IRIS in a single package.   
-8 containers in 1 Docke-Compose felt like driving an 8-cylinder engine.   
+8 containers in 1 Docker-Compose felt like driving an 8-cylinder engine.   
 - sqlgateway-magnificent-7 > IRiS1
 - 1 oracle21c
 - 2 mysql
@@ -22,6 +22,7 @@ And the [official documentation on SQLgateway](https://docs.intersystems.com/iri
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.    
+For the test with Caché, a valid Caqché license is required
 
 ## Installation 
 Clone/git pull the repo into any local directory
@@ -41,7 +42,7 @@ As I like to follow the progress of Compose, I use
 ```
 docker-compose up -d   && docker-compose logs -f
 ```
-This brings some movement to my screen.   
+This brings some movement to my screen and is less boring.   
 Demo data are generated or imported during compose.
 
 3.    **Connection to IRIS**: 
@@ -54,7 +55,7 @@ Demo data are generated or imported during compose.
         
 4. **SQLgateway**  
    is installed during Docker build and all required   
-   jdbcdriver included and activated
+   jdbcdriver are included and activated
    
 ## How to test ##
 SMP is available here 
@@ -63,42 +64,41 @@ SMP is available here
 All migration actions can be executed directly from SMP.   
 1. Verify the gateway connection in    
    SMP> Administration> Configuration> Connectivity> SqlGateway_Configuration    
- ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-IRIS-IRIS/master/docs/gty01.jpg) 
-   - To test Connection click **edit** for connection 
-   - Test vonnection an d check **Connection successful**      
+ ![](https://raw.githubusercontent.com/r-cemper/Magnificent-7/master/docs/gty01.jpg) 
+   - To test Connection click **edit** 
+   - Test connection and check **Connection successful**      
    - Be patient at this point. Sometimes DB containers take quite some time to talk to you.   
      Wait a little bit, reload the page in browser and try the test again. 
    
 2. Identifying the source tables. In SMP > Change to Namespace USER   
   then step to SMP >Explorers >SQL >Wizards > Data Migration   
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-IRIS-IRIS/master/docs/gty04.jpg)
+  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-Magnificent-7/master/docs/gty04.jpg)
   
 3. Set required import parameters  
    -  Destination Namespace = USER  
   -  Type = TABLE   
-  -  Select a SQL Gateway connection: = IRIS2  ; now the first connection is established 
-  -  and you select Schema = SAMPLES  
-  -  Tables to migrate: the Samples.* package   
-     It's a modest set adopted from Caché  
-   
+  -  Select ay SQL Gateway connection    
+  -  and next select a Schema from source
+  -  Tables to migrate: as offered  
+    
 4. Identifying new targets is possible, but may cause conflicts in cross-references 
    This is one key to success:   
    Tables get listed alphabetically not by logical dependency or sequence. 
    This could cause errors.  
 
 5. Skipping special settings, we use defaults to start the task in background      
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-IRIS-IRIS/master/docs/gty07.jpg) 
+  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-Magnificent-7/master/docs/gty07.jpg) 
   
 6. Now check the results and see if everything was working without errors  
    You might see errors if tables depend on content not yet migrated.   
    And wait for completions until the status shows **Done** 
-  
+  https://github.com/r-cemper/SQLgateway-Magnificent-7/blob/main/docs/7upSuccess.jpg
 7. We terminate the Migration Wizard and return to the normal table view 
    All tables are visible and show meaningful columns and contents
+   ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-Magnificent-7/master/docs/7upSuccess.jpg)  
+9. Selecting a table and clicking on **OpenTable** shows reasonable contents   
   
-8. Selecting a table and clicking on **OpenTable** shows reasonable contents   
-  
-9. A look into the related generated Class Definitions confirms the result and successful completion.
+10. A look into the related generated Class Definitions confirms the result and successful completion.
 
   [Article on DC](https://community.intersystems.com/post/sqlgateway-migration-iris-iris) 
  
