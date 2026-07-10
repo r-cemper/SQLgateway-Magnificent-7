@@ -68,7 +68,11 @@ All migration actions can be executed directly from SMP.
    - To test Connection click **edit** 
    - Test connection and check **Connection successful**      
    - Be patient at this point. Sometimes DB containers take quite some time to talk to you.   
-     Wait a little bit, reload the page in browser and try the test again. 
+     Wait a little bit, reload the page in browser and try the test again.   
+     **Hint:**   
+     Also my Docker Desktop seemed to be challenged by 8 starts in 1 compose.   
+     Manual restart of the failing connection container from Docker console fixed my problem:   
+     A missing Cache.Key requires rebuilding the Cache image or manually adding the license.
    
 2. Identifying the source tables. In SMP > Change to Namespace USER   
   then step to SMP >Explorers >SQL >Wizards > Data Migration   
