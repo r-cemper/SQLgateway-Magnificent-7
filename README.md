@@ -95,19 +95,19 @@ All migration actions can be executed directly from SMP.
    This could cause errors.  
 
 5. Skipping special settings, we use defaults to start the task in background      
-  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-migration-Magnificent-7/master/docs/gty07.jpg) 
-  
+  ![](https://raw.githubusercontent.com/r-cemper/SQLgateway-Magnificent-7/master/docs/gty07.jpg)
+
 6. Now check the results and see if everything was working without errors  
    You might see errors if tables depend on content not yet migrated.   
    And wait for completions until the status shows **Done**    
   ![](https://github.com/r-cemper/SQLgateway-Magnificent-7/blob/main/docs/7upSuccess.jpg)
 
-8. We terminate the Migration Wizard and return to the normal table view 
+7. We terminate the Migration Wizard and return to the normal table view 
    All tables are visible and show meaningful columns and contents
    
-9. Selecting a table and clicking on **OpenTable** shows reasonable contents   
+8. Selecting a table and clicking on **OpenTable** shows reasonable contents   
   
-10. A look into the related generated Class Definitions confirms the result and successful completion.
+9. A look into the related generated Class Definitions confirms the result and successful completion.
 
   [Article on DC](https://community.intersystems.com/post/sqlgateway-magnificent-7) 
  
